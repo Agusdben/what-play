@@ -1,0 +1,26 @@
+#root{
+  --main-color: # 
+}
+
+@font-face {
+  font-family: "Oswald";
+  src: url(../public/assets/fonts/oswald-v40-latin-regular.woff)  format("woff"),
+  url(../public/assets/fonts/oswald-v40-latin-regular.woff2)  format("woff2");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Oswald";
+  src: url(../public/assets/fonts/oswald-v40-latin-600.woff) format("woff"),
+  url(../public/assets/fonts/oswald-v40-latin-600.woff2) format("woff2");
+  font-weight: 600;
+}
+
+body{
+  font-family: "Oswald";
+  font-weight: normal;
+}
+
+img{
+  max-width: 100%;
+}

@@ -1,0 +1,30 @@
+.header{
+  display: flex;
+  background-color: #414141;
+  padding: .5em;
+}
+
+.header__logo{
+  margin: 0;
+  width: 50%;
+  height: 50%;
+  color: #fff;
+  display: flex;
+  font-size: 2rem;
+}
+
+.header__logo > div{
+  display: flex;
+  align-items: center;
+}
+
+.header__logo > div:first-child{
+  background-color: #000;
+  color: #fff;
+  justify-content: flex-end;
+}
+
+.header__logo > div:nth-child(2){
+  background-color: #fff;
+  color: #000;
+}
