@@ -20,6 +20,7 @@ html{
 body{
   font-family: "Oswald";
   font-weight: normal;
+  width: 100vw;
   overflow-x: hidden;
   background-color: #222;
 }
@@ -45,6 +46,20 @@ button:hover{
 
 ul{
   padding: 0;
-  margin-bottom: 0;
+  margin: 0;
   list-style: none;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+  border-radius: 5px;
 }

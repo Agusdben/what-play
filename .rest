@@ -2,6 +2,6 @@ POST https://ancient-plains-66549.herokuapp.com/games
 Content-Type: application/json
 
 {
-  "name": "tu vieja",
-  "url": "https://cdn.discordapp.com/attachments/740266880081854535/933100898425663488/85120178.png"
+  "name": "Valheim",
+  "url": "https://cdn.discordapp.com/attachments/740266880081854535/933228022956449852/valheim-cover-pc.png"
 }

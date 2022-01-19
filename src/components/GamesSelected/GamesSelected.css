@@ -2,6 +2,10 @@
   position: relative;
 }
 
+.games-selected:hover{
+  cursor: pointer;
+}
+
 .games-selected p{
   background-color: var(--main-color);
 
@@ -27,39 +31,68 @@
 
 .game-selected__info{
   position: absolute;
-  top: 62px;
+  top: 70px;
   right: 1em;
   display: none;
+  overflow: hidden;
   width: 210px;
-  max-height: 450px;
-  overflow: auto;
-  background-color: var(--main-color);
+  height: 450px;
+  background-color: #fff;
   border-radius: 10px;
-  /* transition: all 300ms linear; */
+}
+
+.game-selected__title{
+  margin: 0;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: underline;
+  background-color: var(--main-color);
 }
 
 .game-selected__info ul {
-  width: 100%;
+  height: 346px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
 }
 
 .game-selected__info li{
   margin-bottom: 1em;
+  border: 1px solid #000;
+  width: 178px;
+  margin: 0 auto;
+  margin-bottom: 1em;
+  background-color: #fff;
   display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
 }
 
 .game-selected__info p{
-  width: 100%;
   padding-left: 1em;
 }
 
-.game-selected__info button{
+.game-selectect__remove{
   background-color: transparent;
+  height: 100%;
+}
+
+.game-selectect__remove-all{
+  margin-bottom: 0px;
+  height: 40px;
+  background-color: var(--main-color);
+  width: 100%;
+  margin: auto;
 }
 
 .game-selected__triangle{
   position: absolute;
   transform: rotate(20deg);
-  z-index: 9999;
+  z-index: -99;
   top: 60%;
   right: 20px;
   width: 40px;

@@ -8,9 +8,14 @@
 }
 
 .game-search > form{
-  width: fit-content;
+  width: clamp(200px, 100%, 500px);
   margin: auto;
+  display: flex;
   border: 1px solid #000;
+}
+
+.game-search > form > input{
+  width: 100%;
 }
 
 .game-search > form > button{
