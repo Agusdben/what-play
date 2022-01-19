@@ -13,7 +13,8 @@ export const GamesContextProvider = ({ children }) => {
       const { games } = await gameServices.getAllGames()
       setGames(games)
     }
-
+    const gamesSelected = window.localStorage.getItem('storedGamesSelected')
+    if (gamesSelected) setGamesSelected(JSON.parse(gamesSelected))
     loadGames()
   }, [])
 

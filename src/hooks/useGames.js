@@ -6,12 +6,13 @@ const useGames = () => {
 
   const addGameSelected = gameToAdd => {
     setGamesSelected(prev => prev.concat(gameToAdd))
-    console.log(gamesSelected)
+    window.localStorage.setItem('storedGamesSelected', JSON.stringify(gamesSelected.concat(gameToAdd)))
   }
 
   const removeGameSelected = gameToRemove => {
     const gamesSelectedUpdate = gamesSelected.filter(gameSelected => gameSelected !== gameToRemove)
     setGamesSelected(gamesSelectedUpdate)
+    window.localStorage.setItem('storedGamesSelected', JSON.stringify(gamesSelectedUpdate))
   }
 
   return {
