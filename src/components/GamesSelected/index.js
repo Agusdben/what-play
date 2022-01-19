@@ -1,20 +1,46 @@
 import React, { useState } from 'react'
 import useGames from '../../hooks/useGames'
+import { Modal } from '../Modal'
 import './GamesSelected.css'
 
 export const GamesSelected = () => {
-  const { gamesSelected, setGamesSelected } = useGames()
+  const { gamesSelected, setGamesSelected, removeGameSelected } = useGames()
   const [toggle, setToggle] = useState(false)
+  const [modal, setModal] = useState({ open: false, description: '', handleConfirm: null, handleCancel: null })
+
   const handleToggle = () => {
     setToggle(!toggle)
   }
-  const handleRemove = ({ target }) => {
-    const gameToRemove = target.parentNode.getAttribute('id')
-    const gamesSelectedUpdate = gamesSelected.filter(game => game !== gameToRemove)
-    setGamesSelected(gamesSelectedUpdate)
-  }
+
   const handleRemoveAll = () => {
-    setGamesSelected([])
+    setModal({
+      open: true,
+      description: 'Remove all games from the list?',
+      handleConfirm: () => {
+        setModal({
+          ...modal,
+          open: false
+        })
+        setGamesSelected([])
+        setToggle(false)
+      },
+      handleCancel: () => { setModal({ ...modal, open: false }) }
+    })
+  }
+
+  const handleRemove = (game) => {
+    setModal({
+      open: true,
+      description: `Remove ${game} from the list?`,
+      handleConfirm: () => {
+        removeGameSelected(game)
+        setModal({
+          ...modal,
+          open: false
+        })
+      },
+      handleCancel: () => { setModal({ ...modal, open: false }) }
+    })
   }
   return (
     <>
@@ -28,14 +54,18 @@ export const GamesSelected = () => {
             gamesSelected.map(game =>
               <li key={game} id={game}>
                 <p>{game}</p>
-                <button className='game-selectect__remove' onClick={handleRemove}>❌</button>
+                <button className='game-selectect__remove' onClick={() => { handleRemove(game) }}>❌</button>
               </li>
             )
           }
         </ul>
         <button className='game-selectect__remove-all' onClick={handleRemoveAll}>Remove all</button>
       </div>
-      {/* <div style={toggle ? { display: 'block' } : { display: 'none' }} className='game-selected__triangle' /> */}
+      {modal.open &&
+        <Modal
+          {...modal}
+        />}
+      <div style={toggle ? { display: 'block' } : { display: 'none' }} className='game-selected__triangle' />
     </>
   )
 }

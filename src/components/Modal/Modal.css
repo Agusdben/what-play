@@ -1,0 +1,35 @@
+.modal{
+  position: fixed;
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-content: center;
+  background-color: rgba(0, 0, 0, .8);
+}
+
+.modal__container{
+  border-radius: 10px;
+  padding: 1em;
+}
+
+.modal__description{
+  font-size: 1.5rem;
+  text-align: center;
+  color: #fff;
+}
+
+.modal__controlls{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal__buton{
+  width: 40%;
+  border: 1px solid #000;
+  background-color: var(--main-color) ;
+  border-radius: 10px;
+}
