@@ -1,0 +1,11 @@
+.logo{
+  width: 50%;
+  color: #fff; 
+  display: flex;
+  font-size: 2rem;
+}
+
+.logo > div:nth-child(2){
+  background-color: var(--main-color);
+  color: #000;
+}

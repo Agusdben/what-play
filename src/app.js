@@ -1,49 +1,32 @@
-import React, { useEffect, useState } from 'react'
-import gameServices from './services/games'
+import React from 'react'
+import { Route, Switch } from 'wouter'
+
+import { GamesContextProvider } from './context/GamesContext'
+
 import { Header } from './components/Header'
-import { Card } from './components/Card'
+import { GameSearch } from './components/GameSearch'
+
+import { Home } from './pages/Home'
+import { Search } from './pages/Search'
 
 export const App = () => {
-  const [games, setGames] = useState([])
-  const [pushGame, setPushGame] = useState(null)
-  useEffect(() => {
-    const loadGames = async () => {
-      const { games } = await gameServices.getAllGames()
-      setGames(games)
-    }
-
-    loadGames()
-  }, [])
-
-  const handleSubmitGame = async (event) => {
-    event.preventDefault()
-
-    if (pushGame) {
-      const updateGames = {
-        games: [...games, pushGame]
-      }
-      try {
-        await gameServices.addGame(updateGames)
-      } catch (e) {
-        console.log(e)
-      }
-    }
-  }
-  const handleInputGame = (event) => {
-    setPushGame(event.target.value)
-  }
-
   return (
-    <div id='app'>
-      <Header />
-      <form onSubmit={handleSubmitGame}>
-        <input type='text' onChange={handleInputGame} value={pushGame} />
-        <button>ENVIAR!</button>
-      </form>
-      {
-        games.map(game => <Card key={game} content={game} />)
-      }
+    <GamesContextProvider>
+      <div id='app'>
+        <Header />
+        <GameSearch />
 
-    </div>
+        <Switch>
+          <Route path='/'>
+            <Home />
+          </Route>
+
+          <Route path='/search/:keyword'>
+            {(params) => <Search keyword={params.keyword} />}
+          </Route>
+        </Switch>
+
+      </div>
+    </GamesContextProvider>
   )
 }

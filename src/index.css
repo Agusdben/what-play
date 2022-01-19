@@ -1,5 +1,6 @@
-#root{
-  --main-color: # 
+html{
+  --main-color: #3daad5;
+  --header-height: 70px;
 }
 
 @font-face {
@@ -19,8 +20,31 @@
 body{
   font-family: "Oswald";
   font-weight: normal;
+  overflow-x: hidden;
+  background-color: #222;
 }
 
 img{
   max-width: 100%;
+}
+
+a{
+  color: #fff;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
+input:focus{
+  outline: none;
+}
+
+button:hover{
+  cursor: pointer;
+}
+
+ul{
+  padding: 0;
+  margin-bottom: 0;
+  list-style: none;
 }

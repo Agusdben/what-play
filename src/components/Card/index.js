@@ -1,13 +1,31 @@
 import React from 'react'
+import useGames from '../../hooks/useGames'
 
 import './Card.css'
 
-export const Card = ({ content }) => {
+export const Card = ({ game }) => {
+  const { gamesSelected, setGamesSelected } = useGames()
+
+  const handleAdd = ({ target }) => {
+    const gameToAdd = target.parentNode.getAttribute('id')
+    setGamesSelected(prev => prev.concat(gameToAdd))
+    console.log(gamesSelected)
+  }
+
+  const handleRemove = ({ target }) => {
+    const gameToRemove = target.parentNode.getAttribute('id')
+    const gamesSelectedUpdate = gamesSelected.filter(game => game !== gameToRemove)
+    setGamesSelected(gamesSelectedUpdate)
+  }
+
   return (
-    <div className='card' style={{ backgroundImage: 'url("https://media.discordapp.net/attachments/242068588628803584/932139592902148096/unknown.png?width=551&height=559")' }}>
-      <div className='card__description'>
-        <h4 className='card__title'>{content}</h4>
-      </div>
+    <div className='card' id={game.name}>
+      <div className='card__img' style={{ backgroundImage: `url(${game.url})` }} />
+      <button className='card__button' onClick={gamesSelected.includes(game.name) ? handleRemove : handleAdd}>
+        {
+          gamesSelected.includes(game.name) ? 'Remove' : 'Add'
+        }
+      </button>
     </div>
   )
 }

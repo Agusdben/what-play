@@ -1,0 +1,19 @@
+.game-search{
+  padding: 2em;
+}
+
+.game-search > form > input, button{
+  padding: .5em;
+  border: none;
+}
+
+.game-search > form{
+  width: fit-content;
+  margin: auto;
+  border: 1px solid #000;
+}
+
+.game-search > form > button{
+  border-left: 1px solid #000;
+  background-color: var(--main-color);
+}
