@@ -1,5 +1,5 @@
 .games{
-  width: 100vw;
+  max-width: 100vw;
   margin: auto;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));

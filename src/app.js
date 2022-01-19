@@ -8,6 +8,7 @@ import { GameSearch } from './components/GameSearch'
 
 import { Home } from './pages/Home'
 import { Search } from './pages/Search'
+import { NotFound } from './pages/NotFound'
 
 export const App = () => {
   return (
@@ -24,6 +25,9 @@ export const App = () => {
 
             <Route path='/search/:keyword'>
               {(params) => <Search keyword={params.keyword} />}
+            </Route>
+            <Route path='/:rest*' status={404}>
+              <NotFound />
             </Route>
           </Switch>
         </div>

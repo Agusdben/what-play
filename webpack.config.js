@@ -6,6 +6,9 @@ const htmlPlugin = new HTML_WEBPACK_PLUGIN({
 })
 
 module.exports = {
+  output: {
+    publicPath: '/'
+  },
   module: {
     rules: [
       {
@@ -18,6 +21,9 @@ module.exports = {
         use: ['style-loader', 'css-loader']
       }
     ]
+  },
+  devServer: {
+    historyApiFallback: true
   },
   plugins: [htmlPlugin]
 }

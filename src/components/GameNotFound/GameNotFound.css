@@ -1,0 +1,5 @@
+.game-not-found{
+  text-align: center;
+  font-size: 2rem;
+  color: var(--main-color);
+}

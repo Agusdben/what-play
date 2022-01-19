@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Card } from '../../components/Card'
+import { GameNotFound } from '../../components/GameNotFound'
 import useGames from '../../hooks/useGames'
 
 export const Search = ({ keyword }) => {
@@ -14,7 +15,7 @@ export const Search = ({ keyword }) => {
   return (
     <>
       {game && <Card game={game} />}
-      {!game && <p>Not Found</p>}
+      {!game && <GameNotFound description={keyword} />}
     </>
   )
 }
