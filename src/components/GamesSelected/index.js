@@ -7,7 +7,6 @@ export const GamesSelected = () => {
   const { gamesSelected, setGamesSelected, removeGameSelected } = useGames()
   const [toggle, setToggle] = useState(false)
   const [modal, setModal] = useState({ open: false, description: '', handleConfirm: null, handleCancel: null })
-
   const handleToggle = () => {
     setToggle(!toggle)
   }
@@ -52,8 +51,8 @@ export const GamesSelected = () => {
         <ul>
           {
             gamesSelected.map(game =>
-              <li key={game} id={game}>
-                <p>{game}</p>
+              <li key={game._id} id={game.name} style={{ backgroundImage: `url(${game.url})` }}>
+                <p>{game.name}</p>
                 <button className='game-selectect__remove' onClick={() => { handleRemove(game) }}>❌</button>
               </li>
             )
@@ -61,10 +60,12 @@ export const GamesSelected = () => {
         </ul>
         <button className='game-selectect__remove-all' onClick={handleRemoveAll}>Remove all</button>
       </div>
-      {modal.open &&
-        <Modal
-          {...modal}
-        />}
+      {
+        modal.open &&
+          <Modal
+            {...modal}
+          />
+      }
       <div style={toggle ? { display: 'block' } : { display: 'none' }} className='game-selected__triangle' />
     </>
   )

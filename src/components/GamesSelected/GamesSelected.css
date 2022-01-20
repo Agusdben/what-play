@@ -37,7 +37,7 @@
   overflow: hidden;
   width: 210px;
   height: 450px;
-  background-color: #fff;
+  background-color: #000;
   border-radius: 10px;
 }
 
@@ -63,17 +63,20 @@
 .game-selected__info li{
   margin-bottom: 1em;
   border: 1px solid #000;
-  width: 178px;
+  width: 150px;
   margin: 0 auto;
   margin-bottom: 1em;
-  background-color: #fff;
+  padding-left: 10px;
   display: flex;
   justify-content: space-between;
   border-radius: 10px;
+  background-position: top ;
+  background-size: cover;
+  color: #fff;
 }
 
 .game-selected__info p{
-  padding-left: 1em;
+  background-color: rgba(0, 0, 0, .5);
 }
 
 .game-selectect__remove{

@@ -9,7 +9,7 @@ export const Card = ({ game }) => {
   const [modal, setModal] = useState({ open: false, description: '', handleConfirm: null, handleCancel: null })
 
   const handleAdd = () => {
-    addGameSelected(game.name)
+    addGameSelected(game)
     console.log(gamesSelected)
   }
 
@@ -18,7 +18,7 @@ export const Card = ({ game }) => {
       open: true,
       description: `Remove ${game.name} from the list?`,
       handleConfirm: () => {
-        removeGameSelected(game.name)
+        removeGameSelected(game)
         setModal({
           ...modal,
           open: false
@@ -29,12 +29,12 @@ export const Card = ({ game }) => {
   }
 
   return (
-    <div style={gamesSelected.includes(game.name) ? { border: '3px solid #0f0' } : {}} className='card' id={game.name}>
+    <div style={gamesSelected.some(gameSelected => gameSelected.name === game.name) ? { border: '3px solid #0f0' } : {}} className='card' id={game.name}>
       <div className='card__img' style={{ backgroundImage: `url(${game.url})` }} />
       <div className='card__description'>{game.description}</div>
-      <button className='card__button' onClick={gamesSelected.includes(game.name) ? handleRemove : handleAdd}>
+      <button className='card__button' onClick={gamesSelected.includes(game) ? handleRemove : handleAdd}>
         {
-          gamesSelected.includes(game.name) ? 'Remove' : 'Add'
+          gamesSelected.some(gameSelected => gameSelected.name === game.name) ? 'Remove' : 'Add'
         }
       </button>
       {modal.open &&
