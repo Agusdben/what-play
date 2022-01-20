@@ -6,12 +6,16 @@ const GameContext = createContext(null)
 
 export const GamesContextProvider = ({ children }) => {
   const [games, setGames] = useState([])
+  const [loading, setLoading] = useState(true)
   const [gamesSelected, setGamesSelected] = useState([])
 
   useEffect(() => {
     const loadGames = async () => {
-      const { games } = await gameServices.getAllGames()
-      setGames(games)
+      try {
+        const { games } = await gameServices.getAllGames()
+        setGames(games)
+        setLoading(false)
+      } catch (e) { console.log(e) }
     }
     const gamesSelected = window.localStorage.getItem('storedGamesSelected')
     if (gamesSelected) setGamesSelected(JSON.parse(gamesSelected))
@@ -22,6 +26,7 @@ export const GamesContextProvider = ({ children }) => {
     <GameContext.Provider value={{
       games,
       gamesSelected,
+      loading,
       setGames,
       setGamesSelected
     }}

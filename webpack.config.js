@@ -1,6 +1,7 @@
 const HTML_WEBPACK_PLUGIN = require('html-webpack-plugin')
 
 const htmlPlugin = new HTML_WEBPACK_PLUGIN({
+  favicon: './public/favicon.ico',
   template: './public/index.html',
   filename: 'index.html'
 })

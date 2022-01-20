@@ -1,0 +1,32 @@
+.loader{
+  position: absolute;
+  display: grid;
+  place-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.loader__joystick{
+  font-size: 3rem;
+  text-align: center;
+  animation: loading 700ms infinite;
+}
+
+.loader__letters span{
+  font-size: 2rem;
+  color: var(--main-color);
+  opacity: .5;
+  animation: spawn 600ms linear infinite;
+}
+
+@keyframes loading{
+  50%{
+    transform: scale(1.1);
+  }
+}
+
+@keyframes spawn{
+  50%{
+    opacity: 1;
+  }
+}

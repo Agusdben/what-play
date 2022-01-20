@@ -10,7 +10,7 @@ export const GameSearch = () => {
   const handleSearch = async (event) => {
     event.preventDefault()
     setKeyword('')
-    setLocation(`/search/${keyword.toLowerCase()}`)
+    if (keyword !== '') setLocation(`/search/${keyword.toLowerCase()}`)
   }
 
   const handleKeyword = ({ target }) => {

@@ -31,6 +31,7 @@ export const Card = ({ game }) => {
   return (
     <div style={gamesSelected.includes(game.name) ? { border: '3px solid #0f0' } : {}} className='card' id={game.name}>
       <div className='card__img' style={{ backgroundImage: `url(${game.url})` }} />
+      <div className='card__description'>{game.description}</div>
       <button className='card__button' onClick={gamesSelected.includes(game.name) ? handleRemove : handleAdd}>
         {
           gamesSelected.includes(game.name) ? 'Remove' : 'Add'

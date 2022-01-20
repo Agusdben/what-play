@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import GamesContext from '../context/GamesContext'
 
 const useGames = () => {
-  const { games, setGames, gamesSelected, setGamesSelected } = useContext(GamesContext)
+  const { games, loading, setGames, gamesSelected, setGamesSelected } = useContext(GamesContext)
 
   const addGameSelected = gameToAdd => {
     setGamesSelected(prev => prev.concat(gameToAdd))
@@ -17,6 +17,7 @@ const useGames = () => {
 
   return {
     games,
+    loading,
     gamesSelected,
     setGames,
     setGamesSelected,
