@@ -37,7 +37,7 @@ export const Card = ({ game }) => {
         <p>{game.description}</p>
         <button onClick={() => { setLocation(`/game/${game.name}`) }}>More info</button>
       </div>
-      <button className='card__button' onClick={gamesSelected.includes(game) ? handleRemove : handleAdd}>
+      <button className='card__button' onClick={gamesSelected.some(gameSelected => gameSelected.name === game.name) ? handleRemove : handleAdd}>
         {
           gamesSelected.some(gameSelected => gameSelected.name === game.name) ? 'Remove' : 'Add'
         }
