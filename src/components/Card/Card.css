@@ -27,13 +27,12 @@
 .card:hover .card__description{
   top: 100px;
 }
+
 .card__description{
   position: absolute;
   top: 100%;
-  z-index: -8;
+  z-index: 0;
   padding: 1em;
-  line-height: 24px;
-  font-size: 1.3rem;
   text-align: center;
   left: 0;
   height: calc(100% - 100px);
@@ -42,7 +41,20 @@
   border-top: 1px solid #000;
   border-radius: 10px 10px 0 0;
 }
+
+.card__description p{
+  height: 100px;
+  line-height: 24px;
+  font-size: 1.3rem;
+  overflow: hidden;
+}
+.card__description button:hover{
+  cursor: pointer;
+}
+
 .card__button{
+  position: relative;
+  z-index: 9;
   height: 35px;
   width: 100%;
   background-color: var(--main-color);

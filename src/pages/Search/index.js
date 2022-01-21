@@ -2,20 +2,19 @@ import React, { useEffect, useState } from 'react'
 import { Card } from '../../components/Card'
 import { GameNotFound } from '../../components/GameNotFound'
 import useGames from '../../hooks/useGames'
-
+import './Search.css'
 export const Search = ({ keyword }) => {
   const { games } = useGames()
   console.log(keyword)
-  const [game, setGame] = useState([])
+  const [gamesFinded, setGameFinded] = useState([])
   useEffect(() => {
-    const [game] = games.filter(game => game.name.toLowerCase().replace(/\s/g, '') === keyword.replace(/["%20"]/g, ''))
-    console.log(game)
-    setGame(game)
+    const gamesFinded = games.filter(game => game.name.toLowerCase().replace(/\s/g, '').includes(keyword.replace(/["%20"]/g, '')))
+    setGameFinded(gamesFinded)
   }, [keyword])
   return (
-    <>
-      {game && <Card game={game} />}
-      {!game && <GameNotFound description={keyword} />}
-    </>
+    <div className='search'>
+      {gamesFinded && gamesFinded.map(game => <Card key={game._id} game={game} />)}
+      {!gamesFinded && <GameNotFound description={keyword} />}
+    </div>
   )
 }

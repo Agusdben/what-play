@@ -10,10 +10,8 @@ const useGames = () => {
   }
 
   const removeGameSelected = gameToRemove => {
-    console.log(gameToRemove, gamesSelected)
-    const index = gamesSelected.indexOf(gameToRemove)
-    gamesSelected.splice(index, 1)
-    setGamesSelected(gamesSelected)
+    const gamesSelectedUpdate = gamesSelected.filter(games => games !== gameToRemove)
+    setGamesSelected(gamesSelectedUpdate)
     window.localStorage.setItem('storedGamesSelected', JSON.stringify(gamesSelected))
   }
 
