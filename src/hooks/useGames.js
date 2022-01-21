@@ -10,9 +10,9 @@ const useGames = () => {
   }
 
   const removeGameSelected = gameToRemove => {
-    const gamesSelectedUpdate = gamesSelected.filter(games => games !== gameToRemove)
+    const gamesSelectedUpdate = gamesSelected.filter(games => games._id !== gameToRemove._id)
     setGamesSelected(gamesSelectedUpdate)
-    window.localStorage.setItem('storedGamesSelected', JSON.stringify(gamesSelected))
+    window.localStorage.setItem('storedGamesSelected', JSON.stringify(gamesSelectedUpdate))
   }
 
   return {
