@@ -1,0 +1,43 @@
+.contact{
+  width: clamp(300px, 100%, 500px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.form{
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form__group{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.form__group p{
+  position: absolute;
+  bottom: 100%;
+  margin-bottom: 0;
+}
+
+.form input,
+.form textarea{
+  margin-bottom: 1.5em;
+  padding: .5em;
+}
+
+.form textarea{
+  height: 100px;
+  resize: none;
+
+}
+
+.form button{
+  align-self: flex-end;
+  width: 100px;
+  background-color: var(--main-color);
+}

@@ -11,9 +11,9 @@ import { Home } from './pages/Home'
 import { Search } from './pages/Search'
 import { NotFound } from './pages/NotFound'
 import { Login } from './pages/Login'
+import { UpdateGame } from './pages/UpdataGame'
 
 import './App.css'
-import { UpdateGame } from './pages/UpdataGame'
 export const App = () => {
   return (
     <GamesContextProvider>
@@ -22,9 +22,7 @@ export const App = () => {
           <Header />
           <main className='app__container'>
             <GameSearch />
-
             <Switch>
-
               <Route path='/'>
                 <Home />
               </Route>
@@ -47,8 +45,8 @@ export const App = () => {
 
             </Switch>
 
-            <Footer />
           </main>
+          <Footer />
         </div>
       </Router>
 

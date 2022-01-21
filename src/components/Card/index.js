@@ -32,7 +32,7 @@ export const Card = ({ game }) => {
 
   return (
     <div style={gamesSelected.some(gameSelected => gameSelected.name === game.name) ? { border: '3px solid #0f0' } : {}} className='card' id={game.name}>
-      <div className='card__img' style={{ backgroundImage: `url(${game.url})` }} />
+      <img className='card__img' src={game.url} alt={game.name} />
       <div className='card__description'>
         <p>{game.description}</p>
         <button onClick={() => { setLocation(`/game/${game.name}`) }}>More info</button>

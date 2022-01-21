@@ -4,6 +4,7 @@ import { Loader } from '../Loader'
 import useGames from '../../hooks/useGames'
 
 import './Games.css'
+import { Roll } from '../Roll'
 
 export const Games = () => {
   const { games, loading } = useGames()
@@ -12,12 +13,15 @@ export const Games = () => {
     <>
       {loading && <Loader />}
       {!loading &&
-        <div className='games'>
-          {
-            games.map(game => <Card key={game._id} game={game} />)
-          }
-        </div>}
-    </>
+        <>
+          <Roll />
+          <div className='games'>
 
+            {
+              games.map(game => <Card key={game._id} game={game} />)
+            }
+          </div>
+        </>}
+    </>
   )
 }

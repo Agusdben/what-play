@@ -30,7 +30,7 @@ export const GamesSelected = () => {
   const handleRemove = (game) => {
     setModal({
       open: true,
-      description: `Remove ${game} from the list?`,
+      description: `Remove ${game.name} from the list?`,
       handleConfirm: () => {
         removeGameSelected(game)
         setModal({

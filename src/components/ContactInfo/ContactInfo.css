@@ -1,0 +1,16 @@
+.contact-info{
+  display: flex;
+  justify-content: space-around;
+  /* align-items: center; */
+  min-width: 300px;
+}
+
+.contact-info__section h2{
+  margin-top: 0;
+  margin-bottom: 5px;
+  text-decoration: underline;
+}
+
+.contact-info__section li{
+  padding: 1em 0;
+}

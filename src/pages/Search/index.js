@@ -13,8 +13,8 @@ export const Search = ({ keyword }) => {
   }, [keyword])
   return (
     <div className='search'>
-      {gamesFinded && gamesFinded.map(game => <Card key={game._id} game={game} />)}
-      {!gamesFinded && <GameNotFound description={keyword} />}
+      {gamesFinded.length > 0 && gamesFinded.map(game => <Card key={game._id} game={game} />)}
+      {gamesFinded.length === 0 && <GameNotFound description={keyword} />}
     </div>
   )
 }

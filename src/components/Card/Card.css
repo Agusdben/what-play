@@ -9,13 +9,12 @@
 }
 
 .card__img{
+  color: var(--main-color);
   position: relative;
   z-index: -9;
   width: inherit;
   height: 365px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  object-fit: cover;
   transition: transform 500ms linear;
 }
 

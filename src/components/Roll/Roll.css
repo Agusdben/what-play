@@ -1,0 +1,58 @@
+.roll{
+  box-sizing: border-box;
+  width: 100vw;
+  display: flex;
+  overflow: hidden;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.roll__gamesSelected{
+  height: 200px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+}
+
+.roll__gamesSelected img{
+  width: 90px;
+  height: 160px;
+  object-fit: cover;
+  margin-right: 1em;
+}
+
+.roll__gamesSelected img:first-child{
+  margin-left: 1em;
+}
+
+.roll__controlls{
+  margin: auto;
+  display: flex;
+  gap: 1em;
+  padding: 1em;
+}
+
+.roll__controlls button{
+  width: 100px;
+  background-color: var(--main-color);
+}
+
+@media screen and (min-width: 1024px) {
+  .roll{
+    flex-wrap: nowrap;
+    max-width: 1280px;
+    margin: auto;
+    margin-bottom: 5rem;
+    border: 1px solid var(--main-color);
+    border-radius: 10px;
+  }
+
+  .roll__controlls{
+    box-sizing: border-box;
+    height: 200px;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
