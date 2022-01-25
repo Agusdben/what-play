@@ -29,12 +29,10 @@ export const App = () => {
                 {(params) => <Search keyword={params.keyword} />}
               </Route>
 
-              <Route path='/:rest*' status={404}>
+              <Route path='/:rest*'>
                 <NotFound />
               </Route>
-
             </Switch>
-
           </main>
           <Footer />
         </div>
