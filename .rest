@@ -1,9 +1,8 @@
-PUT https://ancient-plains-66549.herokuapp.com/games
+PUT https://ancient-plains-66549.herokuapp.com/games/61e79d227400e6c16bcc858b
 Content-Type: application/json
 
 {
-  "gameId": "61ef266819e2ff776c36e23d",
-  "name": "Euro Truck Simulator 2",
-  "url": "https://media.discordapp.net/attachments/740266880081854535/935298764040708156/V8fK6Td_350x200_3x-0.png?width=505&height=670",
-  "description": "Travel across Europe as king of the road, a trucker who delivers important cargo across impressive distances! With dozens of cities to explore, your endurance, skill and speed will all be pushed to their limits."
+  "name": "God of War",
+  "url": "",
+  "description": ""
 }

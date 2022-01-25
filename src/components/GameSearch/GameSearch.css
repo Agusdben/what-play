@@ -28,7 +28,9 @@
 
 .game-search__box-results{
   position: absolute;
-  width: 100%;
+  width: clamp(200px, 100%, 500px);
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 99;
   max-height: 400px;
   overflow: auto;
@@ -37,4 +39,11 @@
 
 .game-search__box-results p{
   font-size: 1.2rem;
+  margin: 0;
+  padding: .5em 0;
+  padding-left: 10px;
+}
+
+.game-search__box-results p:hover{
+  cursor: pointer;
 }

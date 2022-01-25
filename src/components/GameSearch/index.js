@@ -24,6 +24,7 @@ export const GameSearch = () => {
   }
 
   const handleSearchByClick = (e) => {
+    console.log(e.target.innerText.toLowerCase())
     setLocation(`/search/${e.target.innerText.toLowerCase()}`)
     setKeyword('')
     setGamesFinded([])
@@ -41,7 +42,8 @@ export const GameSearch = () => {
             gamesFinded.map((game) =>
               <div key={game._id} onClick={handleSearchByClick}>
                 <p>{game.name}</p>
-              </div>)
+              </div>
+            )
           }
         </div>
       </div>
