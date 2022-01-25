@@ -1,8 +1,8 @@
-PUT https://ancient-plains-66549.herokuapp.com/games/61e79d227400e6c16bcc858b
+POST https://ancient-plains-66549.herokuapp.com/games
 Content-Type: application/json
 
 {
-  "name": "God of War",
-  "url": "",
-  "description": ""
+  "name": "Streets of Rogue",
+  "url": "https://media.discordapp.net/attachments/740266880081854535/935336131090874368/game-steam-streets-of-rogue-cover.png?width=486&height=676",
+  "description": "Fight, sneak, and hack your way through randomly generated cities. It's like Nuclear Throne meets Deus Ex, mixed with the anarchy of GTA. Rogue-lite meets immersive sim, and goes completely insane."
 }

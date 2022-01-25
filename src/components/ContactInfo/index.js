@@ -15,7 +15,7 @@ export const ContactInfo = () => {
         <h2>BackEnd</h2>
         <ul>
           <li><a target='_blank' rel='noreferrer' href='https://www.linkedin.com/in/jonathanycalderon/'>Linkedin</a></li>
-          <li><a target='_blank' rel='noreferrer' href='#'>Github</a></li>
+          <li><a target='_blank' rel='noreferrer' href='https://github.com/amadeusSeckler'>Github</a></li>
         </ul>
       </section>
     </div>
