@@ -5,7 +5,6 @@ import useGames from '../../hooks/useGames'
 import './Search.css'
 export const Search = ({ keyword }) => {
   const { games } = useGames()
-  console.log(keyword)
   const [gamesFinded, setGameFinded] = useState([])
   useEffect(() => {
     const gamesFinded = games.filter(game => game.name.toLowerCase().replace(/\s/g, '').includes(keyword.replace(/["%20"]/g, '')))

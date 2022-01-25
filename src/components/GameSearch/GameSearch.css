@@ -2,23 +2,39 @@
   padding: 5rem 2rem;
 }
 
-.game-search > form > input, button{
+.game-search__container {
+  position: relative;
+}
+.game-search__container > form > input, button{
   padding: .5em;
   border: none;
 }
 
-.game-search > form{
+.game-search__container > form{
   width: clamp(200px, 100%, 500px);
   margin: auto;
   display: flex;
   border: 1px solid #000;
 }
 
-.game-search > form > input{
+.game-search__container > form > input{
   width: 100%;
 }
 
-.game-search > form > button{
+.game-search__container > form > button{
   border-left: 1px solid #000;
   background-color: var(--main-color);
+}
+
+.game-search__box-results{
+  position: absolute;
+  width: 100%;
+  z-index: 99;
+  max-height: 400px;
+  overflow: auto;
+  background-color: #fff;
+}
+
+.game-search__box-results p{
+  font-size: 1.2rem;
 }

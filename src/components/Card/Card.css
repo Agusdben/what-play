@@ -16,11 +16,12 @@
   height: 365px;
   object-fit: cover;
   transition: transform 500ms linear;
+  transform: scale(1.01);
 }
 
 
 .card:hover .card__img{
-  transform: scale(1.07);
+  transform: scale(1.08);
 }
 
 .card:hover .card__description{
@@ -31,18 +32,18 @@
   position: absolute;
   top: 100%;
   z-index: 0;
-  padding: 1em;
   text-align: center;
+  padding: 1em;
   left: 0;
-  height: calc(100% - 100px);
+  height: calc(100% - 135px);
   background-color: rgba(61, 170, 213, .7);
   transition: top 400ms linear;
-  border-top: 1px solid #000;
   border-radius: 10px 10px 0 0;
+  overflow: auto;
 }
 
 .card__description p{
-  height: 100px;
+  margin-top: 0;
   line-height: 24px;
   font-size: 1.3rem;
   overflow: hidden;

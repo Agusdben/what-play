@@ -10,8 +10,6 @@ import { Footer } from './components/Footer'
 import { Home } from './pages/Home'
 import { Search } from './pages/Search'
 import { NotFound } from './pages/NotFound'
-import { Login } from './pages/Login'
-import { UpdateGame } from './pages/UpdataGame'
 
 import './App.css'
 export const App = () => {
@@ -29,14 +27,6 @@ export const App = () => {
 
               <Route path='/search/:keyword'>
                 {(params) => <Search keyword={params.keyword} />}
-              </Route>
-
-              <Route path='/superpiripitiflautico'>
-                <Login />
-              </Route>
-
-              <Route path='/superpiripitiflauticoactualizado'>
-                <UpdateGame />
               </Route>
 
               <Route path='/:rest*' status={404}>

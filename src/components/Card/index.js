@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { useLocation } from 'wouter'
 import useGames from '../../hooks/useGames'
 import { Modal } from '../Modal'
 
@@ -8,11 +7,9 @@ import './Card.css'
 export const Card = ({ game }) => {
   const { gamesSelected, addGameSelected, removeGameSelected } = useGames()
   const [modal, setModal] = useState({ open: false, description: '', handleConfirm: null, handleCancel: null })
-  const [, setLocation] = useLocation()
 
   const handleAdd = () => {
     addGameSelected(game)
-    console.log(gamesSelected)
   }
 
   const handleRemove = () => {
@@ -35,7 +32,6 @@ export const Card = ({ game }) => {
       <img className='card__img' src={game.url} alt={game.name} />
       <div className='card__description'>
         <p>{game.description}</p>
-        <button onClick={() => { setLocation(`/game/${game.name}`) }}>More info</button>
       </div>
       <button className='card__button' onClick={gamesSelected.some(gameSelected => gameSelected.name === game.name) ? handleRemove : handleAdd}>
         {

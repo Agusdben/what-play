@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
+import contactServices from '../../services/contact'
+
 import './ContactForm.css'
+
 export const ContactForm = () => {
+  const [feedback, setFeedback] = useState('')
+
   return (
     <div className='contact'>
       <h2 style={{ textAlign: 'center', textDecoration: 'underline', marginTop: 0 }}>Contact</h2>
@@ -25,8 +30,18 @@ export const ContactForm = () => {
           }
           return errors
         }}
-        onSubmit={(values, { setErrorMessage }) => {
-          console.log(values)
+        onSubmit={async (values) => {
+          try {
+            await contactServices.sendEmail(values)
+            setFeedback('Message sent!')
+            values.name = ''
+            values.email = ''
+            values.subject = ''
+            values.message = ''
+            setTimeout(() => { setFeedback('') }, 3000)
+          } catch (e) {
+            setFeedback('Error!')
+          }
         }}
       >
         {
@@ -38,7 +53,7 @@ export const ContactForm = () => {
               </div>
               <div className='form__group'>
                 <ErrorMessage name='email' component='p' />
-                <Field name='email' placeholder='Email*' />
+                <Field type='email' name='email' placeholder='Email*' />
               </div>
 
               <div className='form__group'>
@@ -54,6 +69,7 @@ export const ContactForm = () => {
 
         }
       </Formik>
+      {feedback && <p className='contact__sent'>{feedback}</p>}
     </div>
   )
 }
