@@ -12,6 +12,7 @@ import { Search } from './pages/Search'
 import { NotFound } from './pages/NotFound'
 
 import './App.css'
+import { Roll } from './components/Roll'
 export const App = () => {
   return (
     <GamesContextProvider>
@@ -20,6 +21,7 @@ export const App = () => {
           <Header />
           <main className='app__container'>
             <GameSearch />
+            <Roll />
             <Switch>
               <Route path='/'>
                 <Home />

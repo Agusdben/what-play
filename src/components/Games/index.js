@@ -4,7 +4,6 @@ import { Loader } from '../Loader'
 import useGames from '../../hooks/useGames'
 
 import './Games.css'
-import { Roll } from '../Roll'
 
 export const Games = () => {
   const { games, loading } = useGames()
@@ -14,7 +13,6 @@ export const Games = () => {
       {loading && <Loader />}
       {!loading &&
         <>
-          <Roll />
           <div className='games'>
 
             {
