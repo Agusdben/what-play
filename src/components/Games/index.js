@@ -1,12 +1,11 @@
 import React from 'react'
 import { Card } from '../Card'
-import { Loader } from '../Loader'
 import useGames from '../../hooks/useGames'
 
 import './Games.css'
 
 export const Games = () => {
-  const { games, loading } = useGames()
+  const { games } = useGames()
 
   return (
     <div className='games'>
