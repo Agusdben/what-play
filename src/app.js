@@ -6,13 +6,13 @@ import { GamesContextProvider } from './context/GamesContext'
 import { Header } from './components/Header'
 import { GameSearch } from './components/GameSearch'
 import { Footer } from './components/Footer'
+import { Roll } from './components/Roll'
 
 import { Home } from './pages/Home'
 import { Search } from './pages/Search'
 import { NotFound } from './pages/NotFound'
 
 import './App.css'
-import { Roll } from './components/Roll'
 export const App = () => {
   return (
     <GamesContextProvider>
