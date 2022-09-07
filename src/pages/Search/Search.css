@@ -1,5 +1,6 @@
 .search{
   width: 100vw;
+  min-height: 500px;
   display: grid;
   place-content: center;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));

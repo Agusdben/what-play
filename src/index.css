@@ -1,6 +1,12 @@
-html{
+:root{
   --main-color: #3daad5;
   --header-height: 70px;
+}
+
+*,
+*::after,
+*::before{
+  box-sizing: border-box;
 }
 
 @font-face {

@@ -1,5 +1,6 @@
 #app{
   width: 100%;
+  overflow-x: hidden;
 }
 .app__container{
   position: relative;

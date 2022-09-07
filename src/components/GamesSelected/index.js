@@ -41,13 +41,13 @@ export const GamesSelected = () => {
       handleCancel: () => { setModal({ ...modal, open: false }) }
     })
   }
+
   return (
     <>
       <div className='games-selected' onClick={handleToggle}>
         <p>🎮<span>{gamesSelected.length}</span></p>
       </div>
-      <div style={toggle ? { display: 'block' } : { display: 'none' }} className='game-selected__info'>
-        <h3 className='game-selected__title'>Games Selected</h3>
+      <div style={toggle ? { right: '0' } : { right: '-100%' }} className='game-selected__info'>
         <ul>
           {
             gamesSelected.map(game =>
@@ -60,13 +60,11 @@ export const GamesSelected = () => {
         </ul>
         <button className='game-selectect__remove-all' onClick={handleRemoveAll}>Remove all</button>
       </div>
-      {
-        modal.open &&
-          <Modal
-            {...modal}
-          />
-      }
-      <div style={toggle ? { display: 'block' } : { display: 'none' }} className='game-selected__triangle' />
+
+      {modal.open &&
+        <Modal
+          {...modal}
+        />}
     </>
   )
 }
