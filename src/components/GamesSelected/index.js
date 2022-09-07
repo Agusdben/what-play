@@ -1,45 +1,45 @@
 import React, { useState } from 'react'
 import useGames from '../../hooks/useGames'
+import { useModal } from '../../hooks/useModal'
 import { Modal } from '../Modal'
 import './GamesSelected.css'
 
 export const GamesSelected = () => {
   const { gamesSelected, setGamesSelected, removeGameSelected } = useGames()
+  const {
+    isModalOpen,
+    description,
+    handleConfirm,
+    setDescription,
+    setConfirm,
+    openModal,
+    closeModal
+  } = useModal()
+
   const [toggle, setToggle] = useState(false)
-  const [modal, setModal] = useState({ open: false, description: '', handleConfirm: null, handleCancel: null })
+
   const handleToggle = () => {
     setToggle(!toggle)
   }
 
   const handleRemoveAll = () => {
-    setModal({
-      open: true,
-      description: 'Remove all games from the list?',
-      handleConfirm: () => {
-        setModal({
-          ...modal,
-          open: false
-        })
-        setGamesSelected([])
-        setToggle(false)
-      },
-      handleCancel: () => { setModal({ ...modal, open: false }) }
+    setDescription('All games selected')
+    setConfirm(() => {
+      setGamesSelected([])
+      window.localStorage.removeItem('storedGamesSelected')
+      closeModal()
+      setToggle(false)
     })
+    openModal()
   }
 
   const handleRemove = (game) => {
-    setModal({
-      open: true,
-      description: `Remove ${game.name} from the list?`,
-      handleConfirm: () => {
-        removeGameSelected(game)
-        setModal({
-          ...modal,
-          open: false
-        })
-      },
-      handleCancel: () => { setModal({ ...modal, open: false }) }
+    setConfirm(() => {
+      removeGameSelected(game)
+      closeModal()
     })
+    setDescription(game.name)
+    openModal()
   }
 
   return (
@@ -61,9 +61,11 @@ export const GamesSelected = () => {
         <button className='game-selectect__remove-all' onClick={handleRemoveAll}>Remove all</button>
       </div>
 
-      {modal.open &&
+      {isModalOpen &&
         <Modal
-          {...modal}
+          description={description}
+          handleConfirm={handleConfirm}
+          handleCancel={closeModal}
         />}
     </>
   )

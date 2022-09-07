@@ -1,30 +1,25 @@
-import React, { useState } from 'react'
+import React from 'react'
 import useGames from '../../hooks/useGames'
+import { useModal } from '../../hooks/useModal'
 import { Modal } from '../Modal'
 
 import './Card.css'
 
 export const Card = ({ game }) => {
   const { gamesSelected, addGameSelected, removeGameSelected } = useGames()
-  const [modal, setModal] = useState({ open: false, description: '', handleConfirm: null, handleCancel: null })
+  const { isModalOpen, description, handleConfirm, setDescription, setConfirm, openModal, closeModal } = useModal()
 
   const handleAdd = () => {
     addGameSelected(game)
   }
 
   const handleRemove = () => {
-    setModal({
-      open: true,
-      description: `Remove ${game.name} from the list?`,
-      handleConfirm: () => {
-        removeGameSelected(game)
-        setModal({
-          ...modal,
-          open: false
-        })
-      },
-      handleCancel: () => { setModal({ ...modal, open: false }) }
+    setConfirm(() => {
+      removeGameSelected(game)
+      closeModal()
     })
+    setDescription(game.name)
+    openModal()
   }
 
   return (
@@ -38,9 +33,11 @@ export const Card = ({ game }) => {
           gamesSelected.some(gameSelected => gameSelected.name === game.name) ? 'Remove' : 'Add'
         }
       </button>
-      {modal.open &&
+      {isModalOpen &&
         <Modal
-          {...modal}
+          description={description}
+          handleConfirm={handleConfirm}
+          handleCancel={closeModal}
         />}
     </div>
   )
