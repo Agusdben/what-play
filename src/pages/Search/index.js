@@ -11,7 +11,7 @@ export const Search = ({ keyword }) => {
     setGameFinded(gamesFinded)
   }, [keyword])
   return (
-    <div className='search'>
+    <div className='games'>
       {gamesFinded.length > 0 && gamesFinded.map(game => <Card key={game._id} game={game} />)}
       {gamesFinded.length === 0 && <GameNotFound description={keyword} />}
     </div>

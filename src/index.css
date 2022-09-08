@@ -1,5 +1,7 @@
 :root{
-  --main-color: #3daad5;
+  --main-color: hsl(197, 64%, 60%);
+  --main-color-lighter: hsl(197, 64%, 80%);
+  --main-color-darken: hsl(197, 64%, 20%);
   --header-height: 70px;
 }
 

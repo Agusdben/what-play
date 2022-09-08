@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'wouter'
 import useGames from '../../hooks/useGames'
 import { useModal } from '../../hooks/useModal'
 import { Modal } from '../Modal'
@@ -22,23 +23,30 @@ export const Card = ({ game }) => {
     openModal()
   }
 
+  const idAded = () => gamesSelected.some(gameSelected => gameSelected.name === game.name)
+
   return (
-    <div style={gamesSelected.some(gameSelected => gameSelected.name === game.name) ? { border: '3px solid #0f0' } : {}} className='card' id={game.name}>
-      <img className='card__img' src={game.url} alt={game.name} />
-      <div className='card__description'>
-        <p>{game.description}</p>
+    <>
+      <div className='card' id={game.name}>
+        <img className='card__img' src={game.url} alt={game.name} />
+        <div className='card__description'>
+          <p className='card__game-name'>{game.name}</p>
+          <p className='card__game-description'>{game.description}</p>
+          <Link className='card__learn-more' to={`/description/${game._id}`}>Learn more</Link>
+        </div>
+        <button className='card__button' onClick={idAded() ? handleRemove : handleAdd}>
+          {
+            idAded() ? '✔' : '📌'
+          }
+        </button>
+        {idAded() && <div className='card__game-added'>ADDED</div>}
       </div>
-      <button className='card__button' onClick={gamesSelected.some(gameSelected => gameSelected.name === game.name) ? handleRemove : handleAdd}>
-        {
-          gamesSelected.some(gameSelected => gameSelected.name === game.name) ? 'Remove' : 'Add'
-        }
-      </button>
       {isModalOpen &&
         <Modal
           description={description}
           handleConfirm={handleConfirm}
           handleCancel={closeModal}
         />}
-    </div>
+    </>
   )
 }
