@@ -1,4 +1,4 @@
-:root{
+:root {
   --main-color: hsl(197, 64%, 60%);
   --main-color-lighter: hsl(197, 64%, 80%);
   --main-color-darken: hsl(197, 64%, 20%);
@@ -7,25 +7,25 @@
 
 *,
 *::after,
-*::before{
+*::before {
   box-sizing: border-box;
 }
 
 @font-face {
   font-family: "Oswald";
-  src: url(../public/assets/fonts/oswald-v40-latin-regular.woff)  format("woff"),
-  url(../public/assets/fonts/oswald-v40-latin-regular.woff2)  format("woff2");
+  src: url(../public/assets/fonts/oswald-v40-latin-regular.woff) format("woff"),
+    url(../public/assets/fonts/oswald-v40-latin-regular.woff2) format("woff2");
   font-weight: 400;
 }
 
 @font-face {
   font-family: "Oswald";
   src: url(../public/assets/fonts/oswald-v40-latin-600.woff) format("woff"),
-  url(../public/assets/fonts/oswald-v40-latin-600.woff2) format("woff2");
+    url(../public/assets/fonts/oswald-v40-latin-600.woff2) format("woff2");
   font-weight: 600;
 }
 
-body{
+body {
   font-family: "Oswald", sans-serif;
   font-weight: normal;
   max-width: 100vw;
@@ -34,26 +34,26 @@ body{
   background-color: #222;
 }
 
-img{
+img {
   max-width: 100%;
 }
 
-a{
+a {
   color: #fff;
   text-decoration: none;
   margin: 0;
   padding: 0;
 }
 
-input:focus{
+input:focus {
   outline: none;
 }
 
-button:hover{
+button:hover {
   cursor: pointer;
 }
 
-ul{
+ul {
   padding: 0;
   margin: 0;
   list-style: none;
@@ -71,4 +71,11 @@ ul{
 ::-webkit-scrollbar-thumb {
   background: var(--main-color);
   border-radius: 5px;
+}
+
+@media (min-width: 768px)  {
+  button:hover {
+    transition: filter 300ms ease-in-out;
+    filter: brightness(150%);
+  }
 }

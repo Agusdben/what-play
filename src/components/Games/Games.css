@@ -6,10 +6,6 @@
   place-content: center;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1em;
-}
-
-@media (min-width: 768px) {
-  .games{
-    width: 95vw;
-  }
+  max-width: 1800px;
+  padding: 1em;
 }

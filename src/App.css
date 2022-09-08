@@ -5,5 +5,4 @@
 .app__container{
   position: relative;
   min-height: calc(100vh - 70px);
-  
 }
