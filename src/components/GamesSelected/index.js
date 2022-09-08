@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import useGames from '../../hooks/useGames'
 import { useModal } from '../../hooks/useModal'
+import useWindowSize from '../../hooks/useWindowSize'
 import { Modal } from '../Modal'
 import './GamesSelected.css'
 
@@ -15,6 +16,8 @@ export const GamesSelected = () => {
     openModal,
     closeModal
   } = useModal()
+
+  const { windowSize } = useWindowSize()
 
   const [toggle, setToggle] = useState(false)
 
@@ -47,7 +50,13 @@ export const GamesSelected = () => {
       <div className='games-selected' onClick={handleToggle}>
         <p>🎮<span>{gamesSelected.length}</span></p>
       </div>
-      <div style={toggle ? { right: '0' } : { right: '-100%' }} className='game-selected__info'>
+      <div
+        style={{
+          '--height': `${windowSize.innerHeight}px`,
+          right: toggle ? '0' : '-100%'
+        }}
+        className='game-selected__info'
+      >
         <ul>
           {
             gamesSelected.map(game =>

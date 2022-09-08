@@ -38,7 +38,7 @@
   right: -100%;
 
   width: 210px;
-  height: calc(100vh - var(--header-height));
+  height: calc(var(--height) - var(--header-height));
 
   background-color: #000;
   border-top: 4px solid var(--main-color);
@@ -49,11 +49,14 @@
 .game-selected__info ul {
   overflow-y: auto;
   flex: 1;
+  padding: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
 .game-selected__info li {
   width: 100%;
-  margin: auto;
   height: 100px;
   display: flex;
   justify-content: space-between;
@@ -89,9 +92,7 @@
   }
 
   .game-selected__info ul{
-    display: grid;
-    gap: 16px;
-    padding: 1em;
+    
   }
 
   .games-selected__info li{

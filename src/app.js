@@ -13,33 +13,35 @@ import { Search } from './pages/Search'
 import { NotFound } from './pages/NotFound'
 
 import './App.css'
+import { WindowSizeContextProvider } from './context/WindowSizeContext'
 export const App = () => {
   return (
     <GamesContextProvider>
-      <Router>
-        <div id='app'>
-          <Header />
-          <main className='app__container'>
-            <GameSearch />
-            <Roll />
-            <Switch>
-              <Route path='/'>
-                <Home />
-              </Route>
+      <WindowSizeContextProvider>
+        <Router>
+          <div id='app'>
+            <Header />
+            <main className='app__container'>
+              <GameSearch />
+              <Roll />
+              <Switch>
+                <Route path='/'>
+                  <Home />
+                </Route>
 
-              <Route path='/search/:keyword'>
-                {(params) => <Search keyword={params.keyword} />}
-              </Route>
+                <Route path='/search/:keyword'>
+                  {(params) => <Search keyword={params.keyword} />}
+                </Route>
 
-              <Route path='/:rest*'>
-                <NotFound />
-              </Route>
-            </Switch>
-          </main>
-          <Footer />
-        </div>
-      </Router>
-
+                <Route path='/:rest*'>
+                  <NotFound />
+                </Route>
+              </Switch>
+            </main>
+            <Footer />
+          </div>
+        </Router>
+      </WindowSizeContextProvider>
     </GamesContextProvider>
   )
 }

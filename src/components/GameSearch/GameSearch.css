@@ -1,5 +1,6 @@
 .game-search{
   padding: 5rem 2rem;
+  margin-top: var(--header-height);
 }
 
 .game-search__container {
