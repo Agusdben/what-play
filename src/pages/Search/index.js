@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Card } from '../../components/Card'
+import Card from '../../components/Card'
 import { GameNotFound } from '../../components/GameNotFound'
 import useGames from '../../hooks/useGames'
 import './Search.css'
@@ -11,9 +11,14 @@ export const Search = ({ keyword }) => {
     setGameFinded(gamesFinded)
   }, [keyword])
   return (
-    <div className='games'>
-      {gamesFinded.length > 0 && gamesFinded.map(game => <Card key={game._id} game={game} />)}
+    <>
+      {gamesFinded.length > 0 &&
+        <div className='games'>
+          {
+            gamesFinded.map(game => <Card key={game._id} game={game} />)
+          }
+        </div>}
       {gamesFinded.length === 0 && <GameNotFound description={keyword} />}
-    </div>
+    </>
   )
 }

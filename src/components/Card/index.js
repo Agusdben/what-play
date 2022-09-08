@@ -7,7 +7,7 @@ import { Modal } from '../Modal'
 
 import './Card.css'
 
-export const Card = ({ game }) => {
+const Card = ({ game }) => {
   const { gamesSelected, addGameSelected, removeGameSelected } = useGames()
   const { isModalOpen, description, handleConfirm, setDescription, setConfirm, openModal, closeModal } = useModal()
   const imgRef = useRef()
@@ -52,3 +52,5 @@ export const Card = ({ game }) => {
     </>
   )
 }
+
+export default Card

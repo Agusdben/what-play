@@ -3,6 +3,8 @@
   --main-color-lighter: hsl(197, 64%, 80%);
   --main-color-darken: hsl(197, 64%, 20%);
   --header-height: 70px;
+  --search-height: 50px;
+  --fixed-top-elements: calc(var(--header-height) + var(--search-height))
 }
 
 *,

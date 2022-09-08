@@ -73,6 +73,7 @@
 
 .game-selectect__remove {
   background-color: transparent;
+  border: none;
 }
 
 .game-selectect__remove-all {

@@ -9,8 +9,6 @@ export const Home = () => {
   if (loading) return <Loader />
 
   return (
-    <>
-      <Games />
-    </>
+    <Games />
   )
 }

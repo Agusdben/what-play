@@ -4,5 +4,6 @@
 }
 .app__container{
   position: relative;
+  padding-top: var(--fixed-top-elements);
   min-height: calc(100vh - 70px);
 }

@@ -6,7 +6,6 @@ import { GamesContextProvider } from './context/GamesContext'
 import { Header } from './components/Header'
 import { GameSearch } from './components/GameSearch'
 import { Footer } from './components/Footer'
-import { Roll } from './components/Roll'
 
 import { Home } from './pages/Home'
 import { Search } from './pages/Search'
@@ -21,9 +20,9 @@ export const App = () => {
         <Router>
           <div id='app'>
             <Header />
+            <GameSearch />
             <main className='app__container'>
-              <GameSearch />
-              <Roll />
+              {/* <Roll /> */}
               <Switch>
                 <Route path='/'>
                   <Home />
