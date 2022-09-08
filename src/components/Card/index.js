@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Link } from 'wouter'
 import useGames from '../../hooks/useGames'
+import useInView from '../../hooks/useInView'
 import { useModal } from '../../hooks/useModal'
 import { Modal } from '../Modal'
 
@@ -9,7 +10,8 @@ import './Card.css'
 export const Card = ({ game }) => {
   const { gamesSelected, addGameSelected, removeGameSelected } = useGames()
   const { isModalOpen, description, handleConfirm, setDescription, setConfirm, openModal, closeModal } = useModal()
-
+  const imgRef = useRef()
+  const isInView = useInView(imgRef)
   const handleAdd = () => {
     addGameSelected(game)
   }
@@ -28,7 +30,7 @@ export const Card = ({ game }) => {
   return (
     <>
       <div className='card' id={game.name}>
-        <img className='card__img' src={game.url} alt={game.name} />
+        <img ref={imgRef} className='card__img' src={isInView ? game.url : ''} alt={game.name} />
         <div className='card__description'>
           <p className='card__game-name'>{game.name}</p>
           <p className='card__game-description'>{game.description}</p>
