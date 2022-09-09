@@ -4,11 +4,11 @@ import { Loader } from '../../components/Loader'
 import useGames from '../../hooks/useGames'
 
 export const Home = () => {
-  const { loading } = useGames()
+  const { games, loading } = useGames()
 
   if (loading) return <Loader />
 
   return (
-    <Games />
+    <Games games={games} />
   )
 }

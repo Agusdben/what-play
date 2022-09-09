@@ -6,4 +6,5 @@
   position: relative;
   padding-top: var(--fixed-top-elements);
   min-height: calc(100vh - 70px);
+  padding-bottom: 250px;
 }

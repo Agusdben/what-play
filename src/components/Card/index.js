@@ -29,7 +29,7 @@ const Card = ({ game }) => {
 
   return (
     <>
-      <div className='card' id={game.name}>
+      <div className='card'>
         <img ref={imgRef} className='card__img' src={isInView ? game.url : ''} alt={game.name} />
         <div className='card__description'>
           <p className='card__game-name'>{game.name}</p>

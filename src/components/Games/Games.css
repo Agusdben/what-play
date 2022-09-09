@@ -1,11 +1,9 @@
 .games{
-  width: 100vw;
+  width: 100%;
   margin: auto;
-  margin-bottom: 5em;
   display: grid;
   place-content: center;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1em;
-  max-width: 1800px;
   padding: 1em;
 }

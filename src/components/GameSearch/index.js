@@ -23,7 +23,9 @@ export const GameSearch = () => {
   const handleKeyword = ({ target }) => {
     setKeyword(target.value)
     const gamesFinded = games.filter(game => game.name.toLowerCase().includes(target.value.toLowerCase()))
-    target.value === '' ? setGamesFinded([]) : setGamesFinded(gamesFinded)
+    target.value === ''
+      ? setGamesFinded([])
+      : setGamesFinded(gamesFinded)
   }
 
   return (
